@@ -4,43 +4,22 @@
 const mdg = function (){
   const PATTERNS ={
     // only numbers
-    '#': {
-      range: new RegExp('\\d'),
-      name: 'numbers',
-      charID: '#'
-    },
+    '#': new RegExp('\\d'),
     // only letters
-    '&': {
-      range: new RegExp('[a-zA-Z]'),
-      name: 'letters',
-      charID: '@'
-    },
+    '&': new RegExp('[a-zA-Z]'),
     // letters and numbers
-    '@': {
-      range: new RegExp('[a-zA-Z0-9]'),
-      name: 'alphanumeric',
-      charID: '@'
-    },
+    '@': new RegExp('[a-zA-Z0-9]'),
     // special characters
-    '$': {
-      range: new RegExp('[^a-zA-Z0-9\\s]'),
-      name: 'symbols',
-      charID: '$'
-    },
+    '$': new RegExp('[^a-zA-Z0-9\\s]'),
     // Separators
-    '!': {
-      range: new RegExp('[,\\.\\/(\\[\\{\\}\\])|\\-_\\*\\^:;\\|—¯]', 'g'),
-      name: 'separators',
-      charID: '*'
-    },
+    '!': new RegExp('[,\\.\\/(\\[\\{\\}\\])|\\-_\\*\\^:;\\|—¯]', 'g'),
   };
-
   const MASK_RULE = new RegExp('[#@&\\$]', 'gi');
   const PLACEHOLDER = 'ø'	//Alt 0248;
 
 
   function removeSeparators(string){
-    const STR = string.replace(PATTERNS["!"].range,"")
+    const STR = string.replace(PATTERNS["!"],"")
     return STR;
   }
 
@@ -135,7 +114,7 @@ const mdg = function (){
     if(OUTPUT.indexOf(PLACEHOLDER) > -1){
       OUTPUT = OUTPUT.replace(OUTPUT.substr(BLIND_CHARACTER_INDEX),"");
       //check if output has some separator on last character and remove it
-      while((PATTERNS['!'].range.test(OUTPUT.slice(-1))) === true && OUTPUT !== ""){
+      while((PATTERNS['!'].test(OUTPUT.slice(-1))) === true && OUTPUT !== ""){
           OUTPUT = OUTPUT.substring(0, OUTPUT.length -1);
       }
     }
@@ -168,7 +147,7 @@ const mdg = function (){
       // Tests if the the cleaned mask has reached the last entry
       if(CURRENT_MASK_CHAR){
         // get the regex based on the character of cleaned mask
-        CURRENT_REGEX = PATTERNS[CURRENT_MASK_CHAR].range;
+        CURRENT_REGEX = PATTERNS[CURRENT_MASK_CHAR];
       }
       else{
         break;
@@ -250,3 +229,6 @@ const mdg = function (){
   }
   return applyMask;
 }();
+
+
+console.log(mdg('888',['###']))
