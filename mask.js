@@ -209,7 +209,7 @@ const mdg = function (){
       OUTPUT_OBJ = (a.maskedOutput.length > b.maskedOutput.length) ? a : b;
       }
       else{
-        OUTPUT_OBJ = ((a.maskedOutput.length > b.maskedOutput.length) && (a.maskOriginal.length <= b.maskOriginal.length)) ? a : b;
+        OUTPUT_OBJ = ((a.maskedOutput.length > b.maskedOutput.length) || (a.maskOriginal.length < b.maskOriginal.length)) ? a : b;
       }
       
       const ARRAY_INDEX = arr.indexOf(OUTPUT_OBJ);
