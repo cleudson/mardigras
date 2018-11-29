@@ -37,7 +37,7 @@ const mdg = function (){
 
   const MASK_RULE = new RegExp('[#@&\\$]', 'gi');
   const PLACEHOLDER = 'ø'	//Alt 0248;
-  const PLACEHOLDER_REGEX = new RegExp(PLACEHOLDER, 'g'); 
+
 
   function removeSeparators(string){
     const STR = string.replace(PATTERNS["!"].range,"")
@@ -132,7 +132,7 @@ const mdg = function (){
     }
     const BLIND_CHARACTER_INDEX = OUTPUT.indexOf(PLACEHOLDER);
     // check if the placeholder is stil on the output
-    if(PLACEHOLDER_REGEX.test(OUTPUT)){
+    if(OUTPUT.indexOf(PLACEHOLDER) > -1){
       OUTPUT = OUTPUT.replace(OUTPUT.substr(BLIND_CHARACTER_INDEX),"");
       //check if output has some separator on last character and remove it
       while((PATTERNS['!'].range.test(OUTPUT.slice(-1))) === true && OUTPUT !== ""){
@@ -189,7 +189,7 @@ const mdg = function (){
 
 
   function defineMaskOutput(maskArrayWithOutput){
-    //Define the array that will be populated with completed outputs
+    //Define the array that will be populated with completed and uncompleted outputs
     let COMPLETED_MASKS = [];
     let UNCOMPLETED_MASKS = [];
     maskArrayWithOutput.map((el, i) => {
@@ -250,5 +250,3 @@ const mdg = function (){
   }
   return applyMask;
 }();
-
-console.log(mdg('555?43%4', ['###$##', '###$##$##']));
