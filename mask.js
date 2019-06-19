@@ -19,8 +19,10 @@ const mdg = function (){
 
 
   function removeSeparators(string){
-    const STR = string.replace(PATTERNS["!"],"")
-    return STR;
+    return string.replace(PATTERNS["!"],"")
+  }
+  function arrayToString(arr){
+    return arr.join("");
   }
 
 
@@ -54,7 +56,7 @@ const mdg = function (){
     }
     // Return a mask pattern without rules. Only placeholder and separators.
   function blindMask(maskOriginal){
-    BLIND_MASK = maskOriginal;
+    const BLIND_MASK = maskOriginal;
     BLIND_MASK.map((el, i) =>{
       if(PATTERNS[el]){
         BLIND_MASK[i] = PLACEHOLDER;
@@ -83,7 +85,7 @@ const mdg = function (){
   function reorderMaskArray(maskArray){
       // Sort the array based on length of each item
       const MASK_SORTED = maskArray.sort(function(a, b) {
-        if(removeSeparators(a.maskOriginal.join("")) == removeSeparators(b.maskOriginal.join(""))) {
+        if(removeSeparators(arrayToString(a.maskOriginal)) == removeSeparators(arrayToString(b.maskOriginal))) {
           throw "Two masks or more have de same amount of input characters.";
         };
         return a.maskCleaned.length - b.maskCleaned.length;
@@ -99,7 +101,7 @@ const mdg = function (){
     // Define the mask Object value
     const MASK_OBJECT = maskObject;
     // Transform the masksBlinded array into string
-    let OUTPUT = MASK_OBJECT.maskBlinded.join("");
+    let OUTPUT = arrayToString(MASK_OBJECT.maskBlinded);
     // Set the completed value o mask object as false
     MASK_OBJECT.completed = false;
     // fulfill the output changing the blind character in favor of input characters
@@ -168,6 +170,7 @@ const mdg = function (){
 
 
   function defineMaskOutput(maskArrayWithOutput){
+    console.log(maskArrayWithOutput)
     //Define the array that will be populated with completed and uncompleted outputs
     let COMPLETED_MASKS = [];
     let UNCOMPLETED_MASKS = [];
@@ -230,5 +233,9 @@ const mdg = function (){
   return applyMask;
 }();
 
+console.log(mdg('123456' ,['###.###-###.##', '###-##']))
 
-console.log(mdg('888',['###']))
+///error mdg('123456' ,['###.###-###.##', '###-##']) // trava o inputfield na segunda máscara
+// embora a segunda máscara esteja completa, travando no número é retirada a possibiliade de incluir mais númerosno inputfield
+// entao não pode dividir as mascara entre completas ou não
+// talvez eu possa eliminar a máscara caso os caracteres válidos do input sejam maiores que a masçara e que esta mascara nao seja única
