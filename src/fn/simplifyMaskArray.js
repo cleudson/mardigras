@@ -1,8 +1,8 @@
   const arrayToString = require('../utils/arrayToString');
-  const emptyString =require('../utils/emptyString');
+  const cleanString =require('../utils/cleanString');
   const { separators } = require('../constants');
 
   module.exports = ( arr ) => {
     const arrToString = arrayToString( arr );
-    return emptyString ( arrToString, separators ); 
+    return cleanString ( arrToString, separators ); 
   }
