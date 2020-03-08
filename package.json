@@ -1,8 +1,14 @@
 {
-  "name": "mask",
+  "name": "mardigras",
   "version": "1.0.0",
-  "description": "Javascript mask",
-  "main": "index.js",
+  "description": "Mdg is for input masking",
+  "keywords": [
+    "mask",
+    "front-end",
+    "html",
+    "esm"
+  ],
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production"
@@ -11,8 +17,8 @@
     "type": "git",
     "url": "https://github.com/cleudson/mask.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Cleudson Cunha",
+  "license": "MIT" ,
   "bugs": {
     "url": "https://github.com/cleudson/mask/issues"
   },
