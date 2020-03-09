@@ -8,17 +8,17 @@
     "html",
     "esm"
   ],
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode=production"
+    "build": "webpack --config config/webpack.config.js --mode=production"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/cleudson/mask.git"
   },
   "author": "Cleudson Cunha",
-  "license": "MIT" ,
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cleudson/mask/issues"
   },
