@@ -1,1 +1,1 @@
-module.exports = (arr) => arr.join("");
+module.exports = (arr) => arr.join('');

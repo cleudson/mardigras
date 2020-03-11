@@ -3,3 +3,10 @@ config/
 
 #source files folder
 src/
+
+# Editor config file
+.editorconfig
+
+# Eslint config file
+.eslintrc.json
+

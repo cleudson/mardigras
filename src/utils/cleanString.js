@@ -1,1 +1,1 @@
- module.exports = (string, regexp) => string.replace(regexp,"");
+module.exports = (string, regexp) => string.replace(regexp, '');
