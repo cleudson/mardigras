@@ -1,6 +1,6 @@
 {
   "name": "mardigras",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Mdg is for input masking",
   "keywords": [
     "mask",
@@ -10,9 +10,9 @@
   ],
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run lint && webpack --config config/webpack.config.js --mode=production",
-    "lint": "eslint ./src/**/*.js"
+    "test": "jest --config config/jest.config.js",
+    "build": "npm run lint && npm run test && webpack --config config/webpack.config.js --mode=production",
+    "lint": "eslint ./**/*.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
+    "jest": "^25.1.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   }

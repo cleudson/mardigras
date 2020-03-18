@@ -3,12 +3,10 @@ const { separators, placeholder } = require('../constants');
 const cleanString = require('../utils/cleanString');
 
 module.exports = (inputString, maskObject) => {
-  let output = arrayToString(maskObject.blindedMask);
   const invalidChars = new RegExp(`${separators.source}*${placeholder}.*`, 'g');
-  [...inputString].forEach((char) => {
-    output = output.replace(placeholder, char);
-  });
-  output = cleanString(output, invalidChars);
+  const replacedString = [...inputString].reduce((acc, char) => acc.replace(placeholder, char),
+    arrayToString(maskObject.blindedMask));
+  const output = cleanString(replacedString, invalidChars);
   const { cleanedMask, originalMask } = maskObject;
   return {
     cleanedMask,
