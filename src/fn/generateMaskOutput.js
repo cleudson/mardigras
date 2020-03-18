@@ -3,13 +3,19 @@ const fillMaskGaps = require('./fillMaskGaps');
 
 module.exports = (inputWithoutSeparators, maskObject) => {
   const { cleanedMask } = maskObject;
-  let inputString = '';
-  [...inputWithoutSeparators].forEach((char, i) => {
+  const inputString = [...inputWithoutSeparators].reduce((acc, char, i, arr) => {
     const currentRegex = patterns[cleanedMask[i]];
-    if (currentRegex === undefined || !currentRegex.test(char)) {
-      return;
+    const nextRegex = patterns[cleanedMask[i + 1]];
+    if (!nextRegex || !currentRegex) {
+      arr.splice(0);
     }
-    inputString += char;
-  });
+    if (!currentRegex) {
+      return acc;
+    }
+    if (currentRegex.test(char)) {
+      return acc + char;
+    }
+    return acc;
+  }, '');
   return fillMaskGaps(inputString, maskObject);
 };
