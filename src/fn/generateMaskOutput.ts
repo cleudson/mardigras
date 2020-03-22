@@ -1,7 +1,9 @@
-const { patterns } = require('../constants');
-const fillMaskGaps = require('./fillMaskGaps');
+/* eslint-disable max-len */
+import { patterns } from '../constants';
+import fillMaskGaps from './fillMaskGaps';
+import { MaskEntryMetadata, MaskEntryOutput } from '../settings/interfaces';
 
-module.exports = (inputWithoutSeparators, maskObject) => {
+const generateMaskOutput = (inputWithoutSeparators:string, maskObject:MaskEntryMetadata):MaskEntryOutput => {
   const { cleanedMask } = maskObject;
   const inputString = [...inputWithoutSeparators].reduce((acc, char, i, arr) => {
     const currentRegex = patterns[cleanedMask[i]];
@@ -19,3 +21,5 @@ module.exports = (inputWithoutSeparators, maskObject) => {
   }, '');
   return fillMaskGaps(inputString, maskObject);
 };
+
+export default generateMaskOutput;

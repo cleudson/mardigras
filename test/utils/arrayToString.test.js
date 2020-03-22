@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const arrayToString = require('src/utils/arrayToString');
+const arrayToString = require('utils/arrayToString').default;
 
 const arr = ['a', 'b', 'c'];
 

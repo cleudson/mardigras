@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const reorderMaskSettings = require('src/fn/reorderMaskSettings');
+const reorderMaskSettings = require('fn/reorderMaskSettings').default;
 
 const settings1 = {
   originalMask: ['@', '-', '$', '/', '&', ':', '#', '#'],

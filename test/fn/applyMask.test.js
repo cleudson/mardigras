@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const applyMask = require('src/fn/applyMask');
+const applyMask = require('fn/applyMask').default;
 
 const pattern = '&-&#';
 const input1 = 'a3a';
