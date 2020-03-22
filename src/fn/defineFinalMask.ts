@@ -4,7 +4,7 @@ import { MaskEntryOutput } from '../settings/interfaces';
 
 const clearOutputSize = (item:MaskEntryOutput) => cleanString(item.output, separators).length;
 
-const defineFinalMask = (maskOutput:MaskEntryOutput[]) => (maskOutput
+const defineFinalMask = (maskEntryOutput:MaskEntryOutput[]) => (maskEntryOutput
   .sort((prev, curr) => (
     clearOutputSize(curr) - clearOutputSize(prev)
   ))
@@ -19,7 +19,7 @@ const defineFinalMask = (maskOutput:MaskEntryOutput[]) => (maskOutput
     return item.completed;
   })
   .reduce((prev, curr) => (
-    (prev.cleanedMask.length < curr.cleanedMask.length) ? prev : curr
+    (prev.clean.length < curr.clean.length) ? prev : curr
   ))
 );
 

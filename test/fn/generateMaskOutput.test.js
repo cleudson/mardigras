@@ -2,35 +2,35 @@
 /* eslint-disable import/no-unresolved */
 import generateMaskOutput from 'fn/generateMaskOutput';
 
-const cleanedMask = ['&', '#', '&', '&'];
-const cleanedMaskInvalid = ['M', '#', '&', '&'];
+const clean = ['&', '#', '&', '&'];
+const cleanInvalid = ['M', '#', '&', '&'];
 const inputEqual = 'z5ja';
 const inputBigger = 'z5jaj';
 const inputSmaller = 'z5j';
-const blindedMask = ['ø', '-', 'ø', 'ø', 'ø'];
+const blind = ['ø', '-', 'ø', 'ø', 'ø'];
 const maskObject = {
-  originalMask: ['&', '-', '#', '&', '&'],
-  cleanedMask,
-  blindedMask,
+  raw: ['&', '-', '#', '&', '&'],
+  clean,
+  blind,
 };
 const maskObjectInvalid = {
-  originalMask: ['&', '-', '#', 'j', '&'],
-  cleanedMask: cleanedMaskInvalid,
-  blindedMask,
+  raw: ['&', '-', '#', 'j', '&'],
+  clean: cleanInvalid,
+  blind,
 };
 
 const expectedCompleted = {
-  cleanedMask,
+  clean,
   output: 'z-5ja',
   completed: true,
 };
 const expectedNotCompleted = {
-  cleanedMask,
+  clean,
   output: 'z-5j',
   completed: false,
 };
 const expectedInvalid = {
-  cleanedMask: cleanedMaskInvalid,
+  clean: cleanInvalid,
   output: '',
   completed: false,
 };

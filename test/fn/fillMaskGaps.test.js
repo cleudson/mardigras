@@ -2,30 +2,30 @@
 /* eslint-disable import/no-unresolved */
 import fillMaskGaps from 'fn/fillMaskGaps';
 
-const cleanedMask = '@#&##';
+const clean = '@#&##';
 const settings = {
-  originalMask: ['@', '-', '#', '/', '&', ':', '#', '#'],
-  blindedMask: ['ø', '-', 'ø', '/', 'ø', ':', 'ø', 'ø'],
-  cleanedMask,
+  raw: ['@', '-', '#', '/', '&', ':', '#', '#'],
+  blind: ['ø', '-', 'ø', '/', 'ø', ':', 'ø', 'ø'],
+  clean,
 };
 
 const inputString1 = '14l52';
 const inputString1Expected = {
   output: '1-4/l:52',
-  cleanedMask,
+  clean,
   completed: true,
 };
 const inputString2 = '14l5';
 const inputString2Expected = {
   output: '1-4/l:5',
-  cleanedMask,
+  clean,
   completed: false,
 };
 
 const inputString3 = '14l5442';
 const inputString3Expected = {
   output: '1-4/l:54',
-  cleanedMask,
+  clean,
   completed: true,
 };
 

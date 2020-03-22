@@ -1,11 +1,11 @@
 /* eslint-disable max-len */
 import { patterns } from '../constants';
 import fillMaskGaps from './fillMaskGaps';
-const generateMaskOutput = (inputWithoutSeparators, maskObject) => {
-    const { cleanedMask } = maskObject;
+const generateMaskOutput = (inputWithoutSeparators, maskEntryMetadata) => {
+    const { clean } = maskEntryMetadata;
     const inputString = [...inputWithoutSeparators].reduce((acc, char, i, arr) => {
-        const currentRegex = patterns[cleanedMask[i]];
-        const nextRegex = patterns[cleanedMask[i + 1]];
+        const currentRegex = patterns[clean[i]];
+        const nextRegex = patterns[clean[i + 1]];
         if (!nextRegex || !currentRegex) {
             arr.splice(0);
         }
@@ -17,6 +17,6 @@ const generateMaskOutput = (inputWithoutSeparators, maskObject) => {
         }
         return acc;
     }, '');
-    return fillMaskGaps(inputString, maskObject);
+    return fillMaskGaps(inputString, maskEntryMetadata);
 };
 export default generateMaskOutput;

@@ -3,16 +3,16 @@ import cleanString from '../utils/cleanString';
 import { MaskEntryMetadata, MaskEntryOutput } from '../settings/interfaces';
 import { separators, placeholder } from '../constants';
 
-const fillMaskGaps = (inputString:string, maskObject:MaskEntryMetadata):MaskEntryOutput => {
+const fillMaskGaps = (inputString:string, maskEntryMetadata:MaskEntryMetadata):MaskEntryOutput => {
   const invalidChars = new RegExp(`${separators.source}*${placeholder}.*`, 'g');
   const replacedString = [...inputString].reduce((acc, char) => acc.replace(placeholder, char),
-    arrayToString(maskObject.blindedMask));
+    arrayToString(maskEntryMetadata.blind));
   const output = cleanString(replacedString, invalidChars);
-  const { cleanedMask, originalMask } = maskObject;
+  const { clean, raw } = maskEntryMetadata;
   return {
-    cleanedMask,
+    clean,
     output,
-    completed: (output.length === originalMask.length),
+    completed: (output.length === raw.length),
   };
 };
 

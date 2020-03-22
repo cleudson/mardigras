@@ -40,12 +40,12 @@ describe('Define final mask', () => {
     const maskObject1 = {
       output: 'efgh',
       completed: true,
-      cleanedMask: ['&', '&', '&', '&'],
+      clean: ['&', '&', '&', '&'],
     };
     const maskObject2 = {
       output: 'efgh',
       completed: true,
-      cleanedMask: ['&', '&', '&', '&', '&'],
+      clean: ['&', '&', '&', '&', '&'],
     };
     const test1 = [
       maskObject1,
