@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
-/* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const createMaskObject = require('fn/createMaskObject').default;
-const cleanMask = require('fn/cleanMask').default;
-const blindMask = require('fn/blindMask').default;
+/* eslint-disable import/no-unresolved */
+import createMaskObject from 'fn/createMaskObject';
+import cleanMask from 'fn/cleanMask';
+import blindMask from 'fn/blindMask';
 
 const mask = '#&@-@#$-&$@';
 const maskExpected = {

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-/* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const blindMask = require('fn/blindMask').default;
+/* eslint-disable import/no-unresolved */
+import blindMask from 'fn/blindMask';
 
 const someMask = ['(', '@', '#', ')', '#', '&', '@', '#', '-', '$', '#', '#', '&'];
 const someMaskExpected = ['(', 'ø', 'ø', ')', 'ø', 'ø', 'ø', 'ø', '-', 'ø', 'ø', 'ø', 'ø'];

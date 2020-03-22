@@ -28,6 +28,7 @@
   ],
   "ignorePatterns": ["lib/", "node_modules/", "build"],
   "rules": {
+    "linebreak-style": "off",
     "import/extensions": [
        "error",
        "ignorePackages",

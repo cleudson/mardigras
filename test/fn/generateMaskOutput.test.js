@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-/* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const generateMaskOutput = require('fn/generateMaskOutput').default;
+/* eslint-disable import/no-unresolved */
+import generateMaskOutput from 'fn/generateMaskOutput';
 
 const cleanedMask = ['&', '#', '&', '&'];
 const cleanedMaskInvalid = ['M', '#', '&', '&'];
