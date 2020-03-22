@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
 const crypto = require('crypto');
-const cleanMask = require('src/fn/cleanMask');
+const cleanMask = require('fn/cleanMask').default;
 
 const validMaskPattern = '#&$-@#';
 const validMaskPatternExpected = ['#', '&', '$', '@', '#'];

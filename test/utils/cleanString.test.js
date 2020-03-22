@@ -1,10 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const cleanString = require('src/utils/cleanString');
-const { separators } = require('src/constants');
+const cleanString = require('utils/cleanString').default;
+const { separators } = require('constants/');
 
 const str = '123-4-5';
-
 
 describe('Cleans string with separator', () => {
   test('Removing separator', () => {

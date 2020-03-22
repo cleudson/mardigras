@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 /* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const createMaskSettings = require('src/fn/createMaskSettings');
-const reorderMaskSettings = require('src/fn/reorderMaskSettings');
-const createMaskObject = require('src/fn/createMaskObject');
+const createMaskSettings = require('fn/createMaskSettings').default;
+const reorderMaskSettings = require('fn/reorderMaskSettings').default;
+const createMaskObject = require('fn/createMaskObject').default;
 
 const patternString = '#&/$#.@@@';
 const patternStringMaskSettings = [patternString].map((mask) => createMaskObject(mask));

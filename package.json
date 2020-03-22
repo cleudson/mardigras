@@ -6,13 +6,18 @@
     "mask",
     "front-end",
     "html",
-    "esm"
+    "esm",
+    "es6",
+    "telephone",
+    "zipcode"
   ],
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest --config config/jest.config.js",
-    "build": "npm run lint && npm run test && webpack --config config/webpack.config.js --mode=production",
-    "lint": "eslint ./**/*.js"
+    "test": "jest",
+    "build": "npm run lint && npm run test && npm run bundle",
+    "bundle": "rollup --config",
+    "dev": "tsc --project tsconfig.json --watch",
+    "lint": "eslint --ext .ts,.js ./"
   },
   "repository": {
     "type": "git",
@@ -25,12 +30,21 @@
   },
   "homepage": "https://github.com/cleudson/mardigras#readme",
   "devDependencies": {
-    "@purtuga/esm-webpack-plugin": "^1.2.1",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.2",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-airbnb-typescript": "^7.2.0",
     "eslint-plugin-import": "^2.20.1",
     "jest": "^25.1.0",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
-  }
+    "rollup": "^2.1.0",
+    "rollup-plugin-filesize": "^6.2.1",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {}
 }

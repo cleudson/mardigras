@@ -1,8 +1,9 @@
-const arrayToString = require('../utils/arrayToString');
-const { separators, placeholder } = require('../constants');
-const cleanString = require('../utils/cleanString');
+import arrayToString from '../utils/arrayToString';
+import cleanString from '../utils/cleanString';
+import { MaskEntryMetadata, MaskEntryOutput } from '../settings/interfaces';
+import { separators, placeholder } from '../constants';
 
-module.exports = (inputString, maskObject) => {
+const fillMaskGaps = (inputString:string, maskObject:MaskEntryMetadata):MaskEntryOutput => {
   const invalidChars = new RegExp(`${separators.source}*${placeholder}.*`, 'g');
   const replacedString = [...inputString].reduce((acc, char) => acc.replace(placeholder, char),
     arrayToString(maskObject.blindedMask));
@@ -14,3 +15,5 @@ module.exports = (inputString, maskObject) => {
     completed: (output.length === originalMask.length),
   };
 };
+
+export default fillMaskGaps;
