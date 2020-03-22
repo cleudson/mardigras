@@ -1,5 +1,5 @@
 import { allowedChars, placeholder } from '../constants';
-const blindMask = (mask) => mask.map((el) => {
+const blindMask = (pattern) => pattern.map((el) => {
     if (el.match(allowedChars)) {
         return placeholder;
     }

@@ -3,12 +3,12 @@
 import reorderMaskSettings from 'fn/reorderMaskSettings';
 
 const settings1 = {
-  originalMask: ['@', '-', '$', '/', '&', ':', '#', '#'],
-  cleanedMask: '@$&##',
+  raw: ['@', '-', '$', '/', '&', ':', '#', '#'],
+  clean: '@$&##',
 };
 const settings2 = {
-  originalMask: ['@', '-', '-', '-', '-', '$', '/', '&', ':', '#'],
-  cleanedMask: '@$&#',
+  raw: ['@', '-', '-', '-', '-', '$', '/', '&', ':', '#'],
+  clean: '@$&#',
 };
 const settings3 = settings2;
 const maskSuccess = [settings1, settings2];

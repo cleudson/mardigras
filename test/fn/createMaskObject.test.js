@@ -6,9 +6,9 @@ import blindMask from 'fn/blindMask';
 
 const mask = '#&@-@#$-&$@';
 const maskExpected = {
-  originalMask: [...mask],
-  cleanedMask: cleanMask(mask),
-  blindedMask: blindMask([...mask]),
+  raw: [...mask],
+  clean: cleanMask(mask),
+  blind: blindMask([...mask]),
 };
 
 test('Create mask Object', () => {

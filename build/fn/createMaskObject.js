@@ -1,11 +1,11 @@
 import cleanMask from './cleanMask';
 import blindMask from './blindMask';
-const createMaskObject = (mask) => {
-    const originalMask = [...mask];
+const createMaskObject = (input) => {
+    const raw = [...input];
     return {
-        originalMask,
-        cleanedMask: cleanMask(mask),
-        blindedMask: blindMask(originalMask),
+        raw,
+        clean: cleanMask(input),
+        blind: blindMask(raw),
     };
 };
 export default createMaskObject;

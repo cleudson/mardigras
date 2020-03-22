@@ -22,13 +22,13 @@ export interface MaskOutput {
 }
 
 export interface MaskEntryMetadata {
-  originalMask: Array<string>;
-  cleanedMask: Array<string> | string;
-  blindedMask: Array<string>;
+  raw: Array<string>;
+  clean: Array<string> | string;
+  blind: Array<string>;
 }
 
 export interface MaskEntryOutput {
   output: string;
-  cleanedMask: Array<string> | string;
+  clean: Array<string> | string;
   completed: boolean;
 }

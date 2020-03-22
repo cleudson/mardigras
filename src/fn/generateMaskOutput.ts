@@ -3,11 +3,11 @@ import { patterns } from '../constants';
 import fillMaskGaps from './fillMaskGaps';
 import { MaskEntryMetadata, MaskEntryOutput } from '../settings/interfaces';
 
-const generateMaskOutput = (inputWithoutSeparators:string, maskObject:MaskEntryMetadata):MaskEntryOutput => {
-  const { cleanedMask } = maskObject;
+const generateMaskOutput = (inputWithoutSeparators:string, maskEntryMetadata:MaskEntryMetadata):MaskEntryOutput => {
+  const { clean } = maskEntryMetadata;
   const inputString = [...inputWithoutSeparators].reduce((acc, char, i, arr) => {
-    const currentRegex = patterns[cleanedMask[i]];
-    const nextRegex = patterns[cleanedMask[i + 1]];
+    const currentRegex = patterns[clean[i]];
+    const nextRegex = patterns[clean[i + 1]];
     if (!nextRegex || !currentRegex) {
       arr.splice(0);
     }
@@ -19,7 +19,7 @@ const generateMaskOutput = (inputWithoutSeparators:string, maskObject:MaskEntryM
     }
     return acc;
   }, '');
-  return fillMaskGaps(inputString, maskObject);
+  return fillMaskGaps(inputString, maskEntryMetadata);
 };
 
 export default generateMaskOutput;

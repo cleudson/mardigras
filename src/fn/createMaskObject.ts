@@ -2,12 +2,12 @@ import cleanMask from './cleanMask';
 import blindMask from './blindMask';
 import { MaskEntryMetadata } from '../settings/interfaces';
 
-const createMaskObject = (mask:string):MaskEntryMetadata => {
-  const originalMask = [...mask];
+const createMaskObject = (input:string):MaskEntryMetadata => {
+  const raw = [...input];
   return {
-    originalMask,
-    cleanedMask: cleanMask(mask),
-    blindedMask: blindMask(originalMask),
+    raw,
+    clean: cleanMask(input),
+    blind: blindMask(raw),
   };
 };
 
