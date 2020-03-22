@@ -1,8 +1,8 @@
-const cleanString = require('../utils/cleanString');
-const { allowedChars, separators } = require('../constants');
+import cleanString from '../utils/cleanString';
+import { allowedChars, separators } from '../constants';
 
 
-module.exports = (pattern) => {
+const cleanMask = (pattern:string):Array<string> | '' | never => {
   const maskWithoutSeparators = cleanString(pattern, separators);
   const maskValidChars = maskWithoutSeparators.match(allowedChars) || '';
   if (maskWithoutSeparators.length !== maskValidChars.length) {
@@ -10,3 +10,5 @@ module.exports = (pattern) => {
   }
   return maskValidChars;
 };
+
+export default cleanMask;

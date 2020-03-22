@@ -1,9 +1,10 @@
-const cleanString = require('../utils/cleanString');
-const { separators } = require('../constants');
+import cleanString from '../utils/cleanString';
+import { separators } from '../constants';
+import { MaskEntryOutput } from '../settings/interfaces';
 
-const clearOutputSize = (item) => cleanString(item.output, separators).length;
+const clearOutputSize = (item:MaskEntryOutput) => cleanString(item.output, separators).length;
 
-module.exports = (maskOutput) => (maskOutput
+const defineFinalMask = (maskOutput:MaskEntryOutput[]) => (maskOutput
   .sort((prev, curr) => (
     clearOutputSize(curr) - clearOutputSize(prev)
   ))
@@ -21,3 +22,5 @@ module.exports = (maskOutput) => (maskOutput
     (prev.cleanedMask.length < curr.cleanedMask.length) ? prev : curr
   ))
 );
+
+export default defineFinalMask;

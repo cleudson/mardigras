@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const fillMaskGaps = require('src/fn/fillMaskGaps');
+const fillMaskGaps = require('fn/fillMaskGaps').default;
 
 const cleanedMask = '@#&##';
 const settings = {
