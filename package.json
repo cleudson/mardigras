@@ -19,6 +19,12 @@
     "dev": "tsc --project tsconfig.json --watch",
     "lint": "eslint --ext .ts,.js ./"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm lint",
+      "pre-push": "npm test"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/cleudson/mardigras.git"
@@ -37,6 +43,7 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-airbnb-typescript": "^7.2.0",
     "eslint-plugin-import": "^2.20.1",
+    "husky": "^4.2.3",
     "jest": "^25.1.0",
     "rollup": "^2.1.0",
     "rollup-plugin-filesize": "^6.2.1",
