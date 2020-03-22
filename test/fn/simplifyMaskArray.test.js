@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-/* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const simplifyMaskArray = require('fn/simplifyMaskArray').default;
+/* eslint-disable import/no-unresolved */
+import simplifyMaskArray from 'fn/simplifyMaskArray';
 
 const arr = ['a', '/', 'b', '.', 'c', '.', 'd'];
 const arrExpected = 'abcd';

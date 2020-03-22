@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-/* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const defineFinalMask = require('fn/defineFinalMask').default;
+/* eslint-disable import/no-unresolved */
+import defineFinalMask from 'fn/defineFinalMask';
 
 
 describe('Define final mask', () => {

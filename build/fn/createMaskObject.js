@@ -1,16 +1,11 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const cleanMask_1 = __importDefault(require("./cleanMask"));
-const blindMask_1 = __importDefault(require("./blindMask"));
+import cleanMask from './cleanMask';
+import blindMask from './blindMask';
 const createMaskObject = (mask) => {
     const originalMask = [...mask];
     return {
         originalMask,
-        cleanedMask: cleanMask_1.default(mask),
-        blindedMask: blindMask_1.default(originalMask),
+        cleanedMask: cleanMask(mask),
+        blindedMask: blindMask(originalMask),
     };
 };
-exports.default = createMaskObject;
+export default createMaskObject;

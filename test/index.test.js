@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-/* eslint import/no-unresolved: [2, { ignore: ['src'] }] */
-const mdg = require('build/index.js').default;
+/* eslint-disable import/no-unresolved */
+import mdg from 'build/index';
 
 const settings = {
   pattern: ['#.&/@', '$-@_##'],

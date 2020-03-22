@@ -1,16 +1,11 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable max-len */
-const constants_1 = require("../constants");
-const fillMaskGaps_1 = __importDefault(require("./fillMaskGaps"));
+import { patterns } from '../constants';
+import fillMaskGaps from './fillMaskGaps';
 const generateMaskOutput = (inputWithoutSeparators, maskObject) => {
     const { cleanedMask } = maskObject;
     const inputString = [...inputWithoutSeparators].reduce((acc, char, i, arr) => {
-        const currentRegex = constants_1.patterns[cleanedMask[i]];
-        const nextRegex = constants_1.patterns[cleanedMask[i + 1]];
+        const currentRegex = patterns[cleanedMask[i]];
+        const nextRegex = patterns[cleanedMask[i + 1]];
         if (!nextRegex || !currentRegex) {
             arr.splice(0);
         }
@@ -22,6 +17,6 @@ const generateMaskOutput = (inputWithoutSeparators, maskObject) => {
         }
         return acc;
     }, '');
-    return fillMaskGaps_1.default(inputString, maskObject);
+    return fillMaskGaps(inputString, maskObject);
 };
-exports.default = generateMaskOutput;
+export default generateMaskOutput;
