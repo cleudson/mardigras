@@ -1,7 +1,7 @@
 {
   "name": "mardigras",
-  "version": "1.1.1",
-  "description": "Mdg is for input masking",
+  "version": "1.0.0",
+  "description": "A useful tool for input masking",
   "keywords": [
     "mask",
     "front-end",
@@ -17,12 +17,13 @@
     "build": "npm run lint && npm run test && npm run bundle",
     "bundle": "rollup --config",
     "dev": "tsc --project tsconfig.json --watch",
-    "lint": "eslint --ext .ts,.js ./"
+    "lint": "eslint ./",
+    "semantic-release": "semantic-release"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm lint",
-      "pre-push": "npm test"
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "repository": {
@@ -37,6 +38,12 @@
   "homepage": "https://github.com/cleudson/mardigras#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.9.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.5",
+    "@semantic-release/npm": "^7.0.5",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
     "eslint": "^6.8.0",
@@ -45,11 +52,19 @@
     "eslint-plugin-import": "^2.20.1",
     "husky": "^4.2.3",
     "jest": "^25.1.0",
+    "lint-staged": "^10.1.0",
     "rollup": "^2.1.0",
     "rollup-plugin-filesize": "^6.2.1",
     "rollup-plugin-terser": "^5.3.0",
     "rollup-plugin-typescript": "^1.0.1",
+    "semantic-release": "^17.0.4",
     "typescript": "^3.8.3"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "lint-staged": {
+    "*.{ts,js}": [
+      "npm run lint",
+      "npm run test"
+    ]
+  }
 }
