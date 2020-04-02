@@ -1,7 +1,7 @@
 {
   "name": "mardigras",
-  "version": "1.0.0",
-  "description": "A useful tool for input masking",
+  "version": "1.1.0",
+  "description": "A lightweight tool for single and multiple masks",
   "keywords": [
     "mask",
     "front-end",
@@ -11,6 +11,7 @@
     "telephone",
     "zipcode"
   ],
+  "files": ["lib/index.js"],
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
