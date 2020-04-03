@@ -1,5 +1,20 @@
-#config folder
-config/
+#build files folder
+build/
 
 #source files folder
 src/
+
+#test files folder
+test/
+
+# Config files
+.editorconfig
+.eslintrc.json
+babel.config.js
+jest.config.js
+rollup.config.js
+tsconfig.json
+
+# Md files
+LICENSE.md
+
